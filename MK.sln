@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MK.Domain", "src\lib\MK.Dom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MK.Presistance", "src\lib\MK.Presistance\MK.Presistance.csproj", "{F80E483D-2678-4E75-A32E-13E146F01906}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MK.Presistance.Test", "src\tests\MK.Presistance.Test\MK.Presistance.Test.csproj", "{E5DDC601-64E8-402D-A3E5-855BA5BC692B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F80E483D-2678-4E75-A32E-13E146F01906}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F80E483D-2678-4E75-A32E-13E146F01906}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F80E483D-2678-4E75-A32E-13E146F01906}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5DDC601-64E8-402D-A3E5-855BA5BC692B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5DDC601-64E8-402D-A3E5-855BA5BC692B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5DDC601-64E8-402D-A3E5-855BA5BC692B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5DDC601-64E8-402D-A3E5-855BA5BC692B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +55,7 @@ Global
 		{8A7778CE-E6B1-4C8A-809F-B6A3BC89546A} = {47064564-13F5-46B1-A468-0BCB12A660E1}
 		{A133BABE-D190-4E76-AFE8-92BBEB0ADB7A} = {47064564-13F5-46B1-A468-0BCB12A660E1}
 		{F80E483D-2678-4E75-A32E-13E146F01906} = {47064564-13F5-46B1-A468-0BCB12A660E1}
+		{E5DDC601-64E8-402D-A3E5-855BA5BC692B} = {7BE5B61F-3B68-4AC7-9C4F-E6FB020EAEC3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {261498FD-31B6-46E6-8BE9-B7B30EB40033}
