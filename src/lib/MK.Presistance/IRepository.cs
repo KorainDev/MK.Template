@@ -1,6 +1,6 @@
-﻿using MK.Domain;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using MK.Domain;
 
 namespace MK.Presistance
 {
@@ -70,7 +70,7 @@ namespace MK.Presistance
         /// <param name="entity">entity to update</param>
         /// <returns>
         /// entity entry after update</returns>
-        Task<TEntity> Update(TEntity entity);
+        TEntity Update(TEntity entity);
 
         /// <summary>
         ///  Gets a table
