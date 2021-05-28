@@ -8,7 +8,7 @@ namespace MK.Presistance
     /// represent data access using repository pattern
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public interface IRepository<TEntity> where TEntity : BaseEntity
+    public partial interface IRepository<TEntity> where TEntity : BaseEntity
     {
         /// <summary>
         /// Insert entity to data
