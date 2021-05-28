@@ -7,9 +7,9 @@ namespace MK.Domain.Logs
     /// </summary>
     public class SystemLogs : BaseEntity
     {
-        public string Description { get; set; } = null;
-        public string FullException { get; set; } = null;
+        public string Description { get; set; }
+        public string FullException { get; set; }
 
-        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public DateTime CreatedDate { get; set; }
     }
 }
