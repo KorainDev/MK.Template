@@ -1,7 +1,7 @@
-﻿using MK.Domain;
-using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using MK.Domain;
 
 namespace MK.Presistance
 {
@@ -10,46 +10,91 @@ namespace MK.Presistance
     /// </summary>
     public partial class EntityRepository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
-        public IQueryable Table => throw new NotImplementedException();
+        #region Fields
+
+        private readonly MKDbContext _dbContext;
+
+        #endregion Fields
+
+        #region ctor
+
+        public EntityRepository(MKDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+        #endregion ctor
+
+        #region Properties
+
+        public IQueryable Table => _dbContext.Set<TEntity>().AsQueryable();
+
+        #endregion Properties
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var context = _dbContext.Set<TEntity>();
+            var obj = context.Where(x => x.ID == id).FirstOrDefault();
+            if (obj != null)
+            {
+                context.Remove(obj);
+                _dbContext.SaveChanges();
+            }
         }
 
         public void Delete(TEntity entity)
         {
-            throw new NotImplementedException();
+            var context = _dbContext.Set<TEntity>();
+            context.Remove(entity);
+            _dbContext.SaveChanges();
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var context = _dbContext.Set<TEntity>();
+            var obj = await context.Where(x => x.ID == id).FirstOrDefaultAsync();
+            if (obj != null)
+            {
+                context.Remove(obj);
+                await _dbContext.SaveChangesAsync();
+            }
         }
 
-        public Task DeleteAsync(TEntity entity)
+        public async Task DeleteAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            var context = _dbContext.Set<TEntity>();
+            context.Remove(entity);
+            await _dbContext.SaveChangesAsync();
         }
 
         public TEntity Insert(TEntity entity)
         {
-            throw new NotImplementedException();
+            var context = _dbContext.Set<TEntity>();
+            context.Add(entity);
+            _dbContext.SaveChanges();
+            return entity;
         }
 
-        public Task<TEntity> InsertAsync(TEntity entity)
+        public async Task<TEntity> InsertAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            var context = _dbContext.Set<TEntity>();
+            await context.AddAsync(entity);
+            await _dbContext.SaveChangesAsync();
+            return entity;
         }
 
-        public Task<TEntity> Update(TEntity entity)
+        public TEntity Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<TEntity>().Update(entity);
+            _dbContext.SaveChanges();
+            return entity;
         }
 
-        public Task<TEntity> UpdateAsync(TEntity entity)
+        public async Task<TEntity> UpdateAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<TEntity>().Update(entity);
+            await _dbContext.SaveChangesAsync();
+            return entity;
         }
     }
 }
